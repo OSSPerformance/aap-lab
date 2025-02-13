@@ -1,5 +1,5 @@
 ---
-- name: Sets the GRUB timeout
+- name: First Playbook
   hosts: all
   become: true
   gather_facts: yes
