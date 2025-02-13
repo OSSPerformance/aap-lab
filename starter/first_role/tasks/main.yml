@@ -1,5 +1,13 @@
 ---
 # defaults file for first_role
-- name: Display Free Memory
+- name: Display Memory Stats
   debug:
-    msg: "Free Memory: {{ ansible_facts['ansible_memfree_mb'] }} MB"
+    msg: "Free Memory: {{ ansible_facts['memory_mb'] }}"
+
+- name: Display Machine Time
+  debug:
+    msg: "Machine Type : {{ ansible_facts['machine'] }}"
+
+- name: Display Machine IP Stats
+  debug:
+    msg: "IPv6 Address: {{ ansible_facts['all_ipv6_addresses'] }}"
