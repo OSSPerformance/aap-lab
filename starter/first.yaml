@@ -4,4 +4,4 @@
 #  become: true
   gather_facts: yes
   roles:
-  - role: first_role
+    - role: first_role

@@ -1,2 +1,5 @@
 ---
-# tasks file for first_role
+# defaults file for first_role
+- name: Display Free Memory
+  debug:
+    msg: "Free Memory: {{ ansible_facts['ansible_memfree_mb'] }} MB"
