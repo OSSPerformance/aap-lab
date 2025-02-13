@@ -1,0 +1,7 @@
+---
+- name: Sets the GRUB timeout
+  hosts: all
+  become: true
+  gather_facts: yes
+  roles:
+  - role: first_role
