@@ -2,8 +2,12 @@
 - name: Create VM  Snapshot
   hosts: localhost
   gather_facts: true
-  vars_files:
-    - some-credentials.yaml
+  vars:
+    vcenter_hostname: "{{ vcenter_hostname }}"
+    vcenter_username: "{{ vcenter_username }}"
+    vcenter_password: "{{ vcenter_password }}"
+#  vars_files:
+#    - some-credentials.yaml
   tasks:
     - name: Create a snapshot
       community.vmware.vmware_guest_snapshot:
