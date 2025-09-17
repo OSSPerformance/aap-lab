@@ -1,3 +1,5 @@
 collections:
   - name: community.vmware
   - name: community.general
+python:
+  - pyvmomi>=8.0.0.1
