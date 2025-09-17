@@ -9,6 +9,10 @@
 #  vars_files:
 #    - some-credentials.yaml
   tasks:
+    - name: gather facts
+      debug:
+        var: ansible_facts
+
     - name: Create a snapshot
       community.vmware.vmware_guest_snapshot:
         hostname: "{{ vcenter_hostname }}"
