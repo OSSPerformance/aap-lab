@@ -17,6 +17,14 @@
       debug:
         var: ansible_env
 
+    - name: Execute printenv
+      command: printenv
+      register: env_output
+
+    - name: Display the environment
+      debug:
+        var: env_output.stdout_lines
+
     - name: Create a snapshot
       community.vmware.vmware_guest_snapshot:
         hostname: "{{ vcenter_hostname }}"
