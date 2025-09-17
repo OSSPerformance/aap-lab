@@ -13,6 +13,10 @@
       debug:
         var: ansible_facts
 
+    - name: Print environment variables
+      debug:
+        var: ansible_env
+
     - name: Create a snapshot
       community.vmware.vmware_guest_snapshot:
         hostname: "{{ vcenter_hostname }}"
