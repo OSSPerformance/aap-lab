@@ -3,9 +3,9 @@
   hosts: localhost
   gather_facts: true
   vars:
-    vcenter_hostname: "{{ vcenter_hostname }}"
-    vcenter_username: "{{ vcenter_username }}"
-    vcenter_password: "{{ vcenter_password }}"
+    vcenter_hostname: "{{ VMWARE_HOST }}"
+    vcenter_username: "{{ VMWARE_USER }}"
+    vcenter_password: "{{ VMWARE_PASSWORD }}"
 #  vars_files:
 #    - some-credentials.yaml
   tasks:
