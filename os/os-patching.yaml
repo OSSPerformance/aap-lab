@@ -4,6 +4,11 @@
   gather_facts: yes
   become: true
   tasks:
+  - name: Fail if system is not registered
+    ansible.builtin.command: subscription-manager status
+    register: sub_status
+    failed_when: "'Unknown' in sub_status.stdout"
+
   - name: Upgrade all packages
     ansible.builtin.yum:
       name: '*'
