@@ -1,0 +1,9 @@
+---
+- name: First Playbook
+  hosts: all
+  gather_facts: yes
+  tasks:
+  - name: Upgrade all packages
+    ansible.builtin.yum:
+      name: '*'
+      state: latest
