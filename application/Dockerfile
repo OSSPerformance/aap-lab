@@ -5,7 +5,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY scr/app.py .
+COPY src/app.py .
 COPY tests/ tests/
 
 EXPOSE 5000
