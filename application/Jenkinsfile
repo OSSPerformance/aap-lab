@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+        IMAGE_NAME = "ci-cd-flask-demo"
+        IMAGE_TAG  = "latest"
+    }
 
     stages {
         stage('Checkout') {
@@ -29,5 +33,11 @@ pipeline {
                 '''
             }
         }
+        stage('Build image') {
+            steps {
+                sh '''
+                podman build -t $IMAGE_NAME:$IMAGE_TAG .
+                '''
+            }
     }
 }
