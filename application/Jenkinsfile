@@ -36,7 +36,8 @@ pipeline {
         stage('Build image') {
             steps {
                 sh '''
-                ls -l
+                cd application
+                podman build -t $IMAGE_NAME:$IMAGE_TAG .
                 '''
             }
         }
