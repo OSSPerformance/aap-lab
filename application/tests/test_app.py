@@ -1,10 +1,20 @@
+import pytest
 from src.app import *
 
-def test_add_positive_numbers():
-    assert add(2, 3) == 5
+@pytest.fixture
+def client():
+    app.config["TESTING"] = True
+    with app.test_client() as client:
+        yield client
 
-def test_add_negative_numbers():
-    assert add(-1, -2) == -3
 
-def test_add_mixed_numbers():
-    assert add(-1, 5) == 4
+def test_home_endpoint(client):
+    response = client.get("/")
+    assert response.status_code == 200
+    assert response.get_json() == {"message": "Hello, Flask!"}
+
+
+def test_health_endpoint(client):
+    response = client.get("/health")
+    assert response.status_code == 200
+    assert response.get_json() == {"status": "ok"}
